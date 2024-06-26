@@ -1,0 +1,16 @@
+
+.heading{
+    text-shadow: 0 0 8px yellow, 0 0 8px yellow, 0 0 4px yellow;
+}
+
+.character-Box{
+    background-color:  rgb(206, 204, 201);;
+}
+.character-name{
+   color: rgb(130, 130, 249);
+  
+}
+
+.film-box{
+    background-color: rgb(206, 204, 201);
+}
