@@ -48,48 +48,48 @@ const CharacterList = () => {
 
   return (
     <>
-      {loading && ( // Show loader if loading is true
+      {loading ? ( // Show loader if loading is true
         <Center height="100vh">
           <Spinner size="xl" />
         </Center>
-      )}
-      <Box p={5} className='main'>
-       <Center> <Heading mb={4}><span className='heading'>Star Wars Characters</span></Heading></Center>
-        <SimpleGrid columns={2} spacing={10}>
-          {characters.map(character => (
-            <Box key={character.name} p={5} shadow="md" borderWidth="1px" className='character-Box' >
-              <Heading fontSize="xl">{character.name}</Heading>
-              <Text mt={4} >Height:<span style={{fontWeight:"bold"}}> {character.height} cm</span></Text>
-              <Text mt={4}>Mass: <span style={{fontWeight:"bold"}}>{character.mass} kg </span></Text>
-              <Box mt={4} >
-                <Button
-                  size={buttonSize}
-                  mr={2}
-                  mb={2} // Add margin-bottom for vertical gap
-                  colorScheme={favorites.some(fav => fav.name === character.name) ? 'red' : 'green'}
-                  onClick={() => toggleFavorite(character)}
-                >
-                  {favorites.some(fav => fav.name === character.name) ? 'Unfavorite' : 'Favorite'}
-                </Button>
-                <Button
-                  size={buttonSize}
-                  mb={2} // Add margin-bottom for vertical gap
-                  as={Link}
-                  to={`/character/${character.url.split('/').slice(-2, -1)}`}
-                  colorScheme="blue"
-                >
-                  View Details
-                </Button>
-              </Box>
-            </Box>
-          ))}
-        </SimpleGrid>
-        <HStack mt={4} justify="center">
-          <button className='btn' onClick={() => setPage(prev=> prev - 1)} disabled={page === 1} >Previous</button>
-          <Text fontWeight="bold">Page {page} of {totalPages}</Text>
-          <button className='btn' onClick={() => setPage(prev=> prev + 1)} disabled={page === totalPages}>Next</button>
-        </HStack>
-      </Box>
+      ):(<Box p={5} className='main'>
+        <Center> <Heading mb={4}><span className='heading'>Star Wars Characters</span></Heading></Center>
+         <SimpleGrid columns={2} spacing={10}>
+           {characters.map(character => (
+             <Box key={character.name} p={5} shadow="md" borderWidth="1px" className='character-Box' >
+               <Heading fontSize="xl">{character.name}</Heading>
+               <Text mt={4} >Height:<span style={{fontWeight:"bold"}}> {character.height} cm</span></Text>
+               <Text mt={4}>Mass: <span style={{fontWeight:"bold"}}>{character.mass} kg </span></Text>
+               <Box mt={4} >
+                 <Button
+                   size={buttonSize}
+                   mr={2}
+                   mb={2} // Add margin-bottom for vertical gap
+                   colorScheme={favorites.some(fav => fav.name === character.name) ? 'red' : 'green'}
+                   onClick={() => toggleFavorite(character)}
+                 >
+                   {favorites.some(fav => fav.name === character.name) ? 'Unfavorite' : 'Favorite'}
+                 </Button>
+                 <Button
+                   size={buttonSize}
+                   mb={2} // Add margin-bottom for vertical gap
+                   as={Link}
+                   to={`/character/${character.url.split('/').slice(-2, -1)}`}
+                   colorScheme="blue"
+                 >
+                   View Details
+                 </Button>
+               </Box>
+             </Box>
+           ))}
+         </SimpleGrid>
+         <HStack mt={4} justify="center">
+           <button className='btn' onClick={() => setPage(prev=> prev - 1)} disabled={page === 1} >Previous</button>
+           <Text fontWeight="bold">Page {page} of {totalPages}</Text>
+           <button className='btn' onClick={() => setPage(prev=> prev + 1)} disabled={page === totalPages}>Next</button>
+         </HStack>
+       </Box>)}
+      
     </>
   );
 };
