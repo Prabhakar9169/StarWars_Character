@@ -1,4 +1,3 @@
-// src/components/CharacterDetail.js
 import React, { useState, useEffect } from 'react';
 import { Box, Heading, Text, Spinner,SimpleGrid , Center  } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
