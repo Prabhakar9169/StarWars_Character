@@ -85,9 +85,9 @@ const CharacterList = () => {
           ))}
         </SimpleGrid>
         <HStack mt={4} justify="center">
-          <Button  colorScheme="blue" onClick={() => setPage(prev=> prev - 1)} disabled={page === 1} >Previous</Button>
+          <button className='btn' onClick={() => setPage(prev=> prev - 1)} disabled={page === 1} >Previous</button>
           <Text fontWeight="bold">Page {page} of {totalPages}</Text>
-          <Button  colorScheme="blue" onClick={() => setPage(prev=> prev + 1)} disabled={page === totalPages}>Next</Button>
+          <button className='btn' onClick={() => setPage(prev=> prev + 1)} disabled={page === totalPages}>Next</button>
         </HStack>
       </Box>
     </>

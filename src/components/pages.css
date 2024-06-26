@@ -10,6 +10,18 @@
    color: rgb(130, 130, 249);
   
 }
+.btn{
+    width: 6rem;
+    height: 2.5rem;
+    background-color: rgb(34, 162, 227);
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    
+}
+.btn:hover{
+    opacity: 90%;
+}
 
 .film-box{
     background-color: rgb(206, 204, 201);
