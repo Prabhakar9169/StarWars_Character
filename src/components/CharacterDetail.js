@@ -41,39 +41,34 @@ const CharacterDetail = () => {
   return (
     <Box p={5}>
       <Center>
-        {" "}
         <Heading mb={4} className="character-name">
           {character.name}
         </Heading>
       </Center>
       <Center>
-        {" "}
         <Box>
-          {" "}
           <Text>
-            Height:{" "}
+            Height:
             <span style={{ fontWeight: "bold" }}>{character.height} cm </span>
           </Text>
           <Text>
-            Mass:{" "}
+            Mass:
             <span style={{ fontWeight: "bold" }}>{character.mass} kg </span>
           </Text>
           <Text>
             Hair Color:
             <span style={{ fontWeight: "bold" }}>
-              {" "}
               {character.hair_color.toUpperCase()}
             </span>
           </Text>
           <Text>
             Skin Color:
             <span style={{ fontWeight: "bold" }}>
-              {" "}
               {character.skin_color.toUpperCase()}
             </span>
           </Text>
           <Text>
-            Eye Color:{" "}
+            Eye Color:
             <span style={{ fontWeight: "bold" }}>
               {character.eye_color.toUpperCase()}
             </span>
@@ -87,7 +82,6 @@ const CharacterDetail = () => {
           <Text>
             Gender:
             <span style={{ fontWeight: "bold" }}>
-              {" "}
               {character.gender.toUpperCase()}
             </span>
           </Text>
@@ -109,12 +103,12 @@ const CharacterDetail = () => {
               {film.title}
             </Heading>
             <Text mt={4}>
-              Release Date:{" "}
+              Release Date:
               <span style={{ fontWeight: "bold" }}>{film.release_date}</span>
             </Text>
             <Text mt={4}>
               Director:
-              <span style={{ fontWeight: "bold" }}>{film.director}</span>{" "}
+              <span style={{ fontWeight: "bold" }}>{film.director}</span>
             </Text>
           </Box>
         ))}

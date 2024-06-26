@@ -63,7 +63,6 @@ const CharacterList = () => {
       ) : (
         <Box p={5} className="main">
           <Center>
-            {" "}
             <Heading mb={4}>
               <span className="heading">Star Wars Characters</span>
             </Heading>
@@ -81,14 +80,13 @@ const CharacterList = () => {
                 <Text mt={4}>
                   Height:
                   <span style={{ fontWeight: "bold" }}>
-                    {" "}
                     {character.height} cm
                   </span>
                 </Text>
                 <Text mt={4}>
-                  Mass:{" "}
+                  Mass:
                   <span style={{ fontWeight: "bold" }}>
-                    {character.mass} kg{" "}
+                    {character.mass} kg
                   </span>
                 </Text>
                 <Box mt={4}>
