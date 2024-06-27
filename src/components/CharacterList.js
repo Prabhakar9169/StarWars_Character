@@ -22,7 +22,7 @@ const CharacterList = () => {
     return savedFavorites ? JSON.parse(savedFavorites) : [];
   });
   const [loading, setLoading] = useState(false);
-
+  console.log(characters,"Char")
   useEffect(() => {
     setLoading(true);
     fetch(`https://swapi.dev/api/people/?page=${page}`)

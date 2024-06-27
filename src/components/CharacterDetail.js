@@ -5,15 +5,17 @@ import {
   Text,
   Spinner,
   SimpleGrid,
-  Center, Table,  Tbody, Tr,  Td ,
+  Center,Flex, Table, Tbody, Tr, Td, Image,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
+
 
 const CharacterDetail = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState(null);
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(true);
+  const imagePath = require(`../assets/${id}.jpeg`);
 
   useEffect(() => {
     fetch(`https://swapi.dev/api/people/${id}/`)
@@ -47,25 +49,25 @@ const CharacterDetail = () => {
       </Center>
       <Center>
       <Box width="100%">
+  <Flex justifyContent="space-evenly">
+    <Box >
       <Table variant="simple" width="100%">
-       
-         
         <Tbody>
           <Tr fontWeight="bold">
             <Td>Height</Td>
-            <Td >{character.height} cm</Td>
+            <Td>{character.height} cm</Td>
           </Tr>
           <Tr fontWeight="bold">
             <Td>Mass</Td>
-            <Td >{character.mass} kg</Td>
+            <Td>{character.mass} kg</Td>
           </Tr>
           <Tr fontWeight="bold">
             <Td>Hair Color</Td>
-            <Td >{character.hair_color.toUpperCase()}</Td>
+            <Td>{character.hair_color.toUpperCase()}</Td>
           </Tr>
           <Tr fontWeight="bold">
             <Td>Skin Color</Td>
-            <Td >{character.skin_color.toUpperCase()}</Td>
+            <Td>{character.skin_color.toUpperCase()}</Td>
           </Tr>
           <Tr fontWeight="bold">
             <Td>Eye Color</Td>
@@ -82,6 +84,23 @@ const CharacterDetail = () => {
         </Tbody>
       </Table>
     </Box>
+    <Box  
+      height="10%" 
+      width="20%" 
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Image 
+        src={imagePath}
+        alt={character.name} 
+        objectFit="cover"
+        height="100%"
+        width="100%" 
+      />
+    </Box>
+  </Flex>
+</Box>
       </Center>
       <Heading mt={6} mb={4} size="lg">
         Films
