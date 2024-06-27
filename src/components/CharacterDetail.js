@@ -5,7 +5,7 @@ import {
   Text,
   Spinner,
   SimpleGrid,
-  Center,
+  Center, Table,  Tbody, Tr,  Td ,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 
@@ -46,46 +46,42 @@ const CharacterDetail = () => {
         </Heading>
       </Center>
       <Center>
-        <Box>
-          <Text>
-            Height:
-            <span style={{ fontWeight: "bold" }}>{character.height} cm </span>
-          </Text>
-          <Text>
-            Mass:
-            <span style={{ fontWeight: "bold" }}>{character.mass} kg </span>
-          </Text>
-          <Text>
-            Hair Color:
-            <span style={{ fontWeight: "bold" }}>
-              {character.hair_color.toUpperCase()}
-            </span>
-          </Text>
-          <Text>
-            Skin Color:
-            <span style={{ fontWeight: "bold" }}>
-              {character.skin_color.toUpperCase()}
-            </span>
-          </Text>
-          <Text>
-            Eye Color:
-            <span style={{ fontWeight: "bold" }}>
-              {character.eye_color.toUpperCase()}
-            </span>
-          </Text>
-          <Text>
-            Birth Year:
-            <span style={{ fontWeight: "bold" }}>
-              {character.birth_year.toUpperCase()}
-            </span>
-          </Text>
-          <Text>
-            Gender:
-            <span style={{ fontWeight: "bold" }}>
-              {character.gender.toUpperCase()}
-            </span>
-          </Text>
-        </Box>
+      <Box width="100%">
+      <Table variant="simple" width="100%">
+       
+         
+        <Tbody>
+          <Tr fontWeight="bold">
+            <Td>Height</Td>
+            <Td >{character.height} cm</Td>
+          </Tr>
+          <Tr fontWeight="bold">
+            <Td>Mass</Td>
+            <Td >{character.mass} kg</Td>
+          </Tr>
+          <Tr fontWeight="bold">
+            <Td>Hair Color</Td>
+            <Td >{character.hair_color.toUpperCase()}</Td>
+          </Tr>
+          <Tr fontWeight="bold">
+            <Td>Skin Color</Td>
+            <Td >{character.skin_color.toUpperCase()}</Td>
+          </Tr>
+          <Tr fontWeight="bold">
+            <Td>Eye Color</Td>
+            <Td>{character.eye_color.toUpperCase()}</Td>
+          </Tr>
+          <Tr fontWeight="bold">
+            <Td>Birth Year</Td>
+            <Td>{character.birth_year.toUpperCase()}</Td>
+          </Tr>
+          <Tr fontWeight="bold">
+            <Td>Gender</Td>
+            <Td>{character.gender.toUpperCase()}</Td>
+          </Tr>
+        </Tbody>
+      </Table>
+    </Box>
       </Center>
       <Heading mt={6} mb={4} size="lg">
         Films
