@@ -15,7 +15,10 @@ import "./pages.css";
 
 const CharacterList = () => {
   const [characters, setCharacters] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(() => {
+    const storedPage = localStorage.getItem("currentPage");
+    return storedPage ? parseInt(storedPage, 10) : 1;
+  });
   const [totalPages, setTotalPages] = useState(1);
   const [favorites, setFavorites] = useState(() => {
     const savedFavorites = localStorage.getItem("favorites");
@@ -38,6 +41,9 @@ const CharacterList = () => {
       .finally(() => {
         setLoading(false);
       });
+  }, [page]);
+  useEffect(() => {
+    localStorage.setItem("currentPage", page.toString());
   }, [page]);
 
   const toggleFavorite = (character) => {
