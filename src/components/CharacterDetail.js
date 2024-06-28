@@ -5,10 +5,17 @@ import {
   Text,
   Spinner,
   SimpleGrid,
-  Center,Flex, Table, Tbody, Tr, Td, Image,
+  Center,
+  Flex,
+  Table,
+  Tbody,
+  Tr,
+  Td,
+  Image,
+  Button,
 } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
-
+import { useParams, Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 const CharacterDetail = () => {
   const { id } = useParams();
@@ -42,65 +49,84 @@ const CharacterDetail = () => {
 
   return (
     <Box p={5}>
+      <Button
+        position="fixed"
+        display={{ base: "none", md: "block" }}
+        as={Link}
+        to={`/`}
+        textAlign="center"
+        color="lightblack"
+      >
+        <Flex mt={3} align="center" justify="center">
+          <FaArrowLeft />
+        </Flex>
+      </Button>
       <Center>
         <Heading mb={4} className="character-name">
           {character.name}
         </Heading>
       </Center>
       <Center>
-      <Box width="100%">
-  <Flex justifyContent="space-evenly">
-    <Box >
-      <Table variant="simple" width="100%">
-        <Tbody>
-          <Tr fontWeight="bold">
-            <Td>Height</Td>
-            <Td>{character.height} cm</Td>
-          </Tr>
-          <Tr fontWeight="bold">
-            <Td>Mass</Td>
-            <Td>{character.mass} kg</Td>
-          </Tr>
-          <Tr fontWeight="bold">
-            <Td>Hair Color</Td>
-            <Td>{character.hair_color.toUpperCase()}</Td>
-          </Tr>
-          <Tr fontWeight="bold">
-            <Td>Skin Color</Td>
-            <Td>{character.skin_color.toUpperCase()}</Td>
-          </Tr>
-          <Tr fontWeight="bold">
-            <Td>Eye Color</Td>
-            <Td>{character.eye_color.toUpperCase()}</Td>
-          </Tr>
-          <Tr fontWeight="bold">
-            <Td>Birth Year</Td>
-            <Td>{character.birth_year.toUpperCase()}</Td>
-          </Tr>
-          <Tr fontWeight="bold">
-            <Td>Gender</Td>
-            <Td>{character.gender.toUpperCase()}</Td>
-          </Tr>
-        </Tbody>
-      </Table>
-    </Box>
-    <Box  
-      height="10%" 
-      width="20%" 
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      <Image 
-        src={imagePath}
-        alt={character.name} 
-        objectFit="cover"
-        height="100%"
-        width="100%" 
-      />
-    </Box>
-  </Flex>
-</Box>
+        <Box width="100%" border="1px solid #9ea2a6" borderRadius="5px">
+          <Flex
+            justifyContent="space-evenly"
+            wrap="wrap"
+            flexDirection={{ base: "column", md: "row" }}
+            alignItems={{ base: "center", md: "flex-start" }}
+          >
+            <Box width={{ base: "100%", md: "auto" }}>
+              <Table variant="simple" width="100%">
+                <Tbody>
+                  <Tr fontWeight="bold">
+                    <Td>Height</Td>
+                    <Td>{character.height} cm</Td>
+                  </Tr>
+                  <Tr fontWeight="bold">
+                    <Td>Mass</Td>
+                    <Td>{character.mass} kg</Td>
+                  </Tr>
+                  <Tr fontWeight="bold">
+                    <Td>Hair Color</Td>
+                    <Td>{character.hair_color.toUpperCase()}</Td>
+                  </Tr>
+                  <Tr fontWeight="bold">
+                    <Td>Skin Color</Td>
+                    <Td>{character.skin_color.toUpperCase()}</Td>
+                  </Tr>
+                  <Tr fontWeight="bold">
+                    <Td>Eye Color</Td>
+                    <Td>{character.eye_color.toUpperCase()}</Td>
+                  </Tr>
+                  <Tr fontWeight="bold">
+                    <Td>Birth Year</Td>
+                    <Td>{character.birth_year.toUpperCase()}</Td>
+                  </Tr>
+                  <Tr fontWeight="bold">
+                    <Td>Gender</Td>
+                    <Td>{character.gender.toUpperCase()}</Td>
+                  </Tr>
+                </Tbody>
+              </Table>
+            </Box>
+            <Box
+              height={{ base: "auto", md: "100%" }}
+              width={{ base: "100%", md: "20%" }}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              padding="5px"
+              mt={{ base: 4, md: 0 }}
+            >
+              <Image
+                src={imagePath}
+                alt={character.name}
+                objectFit="cover"
+                height="100%"
+                width="100%"
+              />
+            </Box>
+          </Flex>
+        </Box>
       </Center>
       <Heading mt={6} mb={4} size="lg">
         Films
